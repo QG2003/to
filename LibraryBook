@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class LibraryBook {
+    String bookTitle;
+    String authorName;
+    int numberOfPages;
+    int publicationYear;
+    double price;
+    
+    public LibraryBook(String bookTitle, String authorName, int numberOfPages, int publicationYear, double price){
+        this.bookTitle = bookTitle;
+        this.authorName = authorName;
+        this.numberOfPages = numberOfPages;
+        this.publicationYear = publicationYear;
+        this.price = price;
+    }
+    public void displayBookinfo(){
+        System.out.println("Title: " + bookTitle);
+        System.out.println("Authour: " + authorName);
+        System.out.println("Number of pages: " + numberOfPages);
+        System.out.println("Publication year: " + publicationYear);
+        System.out.println("Price: $" + price);
+    }
+    public boolean isOldbook(){
+        int currentyear = 2024;
+        if(currentyear - publicationYear > 10){
+            return true;
+        }
+        else{
+            return false;
+        }
+     
+    }
+    public boolean isExpensive(){
+        if(price > 100){
+            return true;
+        }
+        else{
+            return false;
+        }
+    
+    }
+    public static void main(String[] args){
+        
+        Scanner scanner = new Scanner(System.in); 
+        System.out.println("How many books do you want?: ");
+        int books = scanner.nextInt();
+        
+        LibraryBook book1 = new LibraryBook("The Hope", "George Mason", 152, 2003, 20.99);
+        LibraryBook book2 = new LibraryBook("Help", "Tom Jones", 100, 2016, 10.99);
+
+        book1.displayBookinfo();
+        book2.displayBookinfo();
+    }
+
+}
+
